@@ -1,0 +1,28 @@
+function gf=goldfind(alp,x,d)
+a=-1;
+b=2;
+tolerance=0.001;
+alp=1;
+
+f1=funf2(alp,x,d);
+f2=fun2(alp,x,d);
+while abs(b-a)>=tolerance
+    if f1<f2-1e-12
+        b=x2;x2=x1;f2=f1;
+        x1=a+0.382*(b-a);f1=funf(x1);
+    else 
+        a=x1;x1=x2;f1=f2;
+        x2=a+0.618*(b-a);
+        f2=funf(x2);
+    end
+    
+end
+answ=0.5*(a+b);
+fprintf('(%d,%d)\n',answ,funf(answ));
+%fprintf('%d\n',a);
+%fprintf('%d\n',b);
+x=-2:0.001:2;
+y=funf(x);
+plot(x,y,answ,funf(answ),'r*')
+
+end

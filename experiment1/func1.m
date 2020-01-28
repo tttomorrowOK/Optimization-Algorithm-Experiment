@@ -1,0 +1,9 @@
+function fx = func1(x)
+    %fx = -sin(x).^6*tan(1-x)*exp(30*x);
+    fx = exp(x) + exp(-1*x);
+end
+
+
+
+
+
